@@ -15,8 +15,19 @@ import CustomTooltip from "../CustomToolTip/CustomToolTip";
 import './../../global-styles.scss'
 import styles from './CustomPieChart.module.scss';
 
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
 const CustomPieChart = ({data, keys, stylesData}: IChartProps) => {
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    console.log("stylesData", stylesData?.colors?.length)
+
+    const cellFill = (index: number) => {
+        if (stylesData?.colors) {
+            return (index % stylesData?.colors?.length)
+        } else {
+            return index % COLORS.length
+        }
+    }
+
     return (
         <div className={styles.wrapper}>
             <ResponsiveContainer width="100%" aspect={3}>
@@ -34,13 +45,13 @@ const CustomPieChart = ({data, keys, stylesData}: IChartProps) => {
                             label={CustomizedLabel}
                         >
                             {data.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={(stylesData?.colors as string[])[index % COLORS.length]}/>
+                                <Cell key={`cell-${index}`} fill={(stylesData?.colors as string[])[cellFill(index)]}/>
                             ))}
                         </Pie>
                     )}
                     <Tooltip
                         cursor={{stroke: '#D9FFFF'}}
-                        content={<CustomTooltip chartType="pie" />}
+                        content={<CustomTooltip chartType="pie"/>}
                     />
                 </PieChart>
             </ResponsiveContainer>
