@@ -11,6 +11,7 @@ export interface IChartProps {
     data: IData[];
     keys: string[];
     stylesData?: IStylesData;
+    sizeStyles?: string;
 }
 
 export interface IStylesData {

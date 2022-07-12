@@ -15,6 +15,16 @@ interface IProps {
 }
 
 const ChartBuilder = (config: IProps) => {
+    let chartSize: string = "chart_full"
+
+    if (config.config.length === 1) {
+        chartSize = "chart_full"
+    } else if (config.config.length === 2) {
+        chartSize = "chart_half"
+    } else if (config.config.length >= 3) {
+        chartSize = "chart_third"
+    }
+
     return (
         <div className={styles.wrapper}>
             {config.config.map((chart: IConfig) => {
@@ -26,6 +36,7 @@ const ChartBuilder = (config: IProps) => {
                                 data={chart.data}
                                 keys={chart.keysArray}
                                 stylesData={chart.stylesData}
+                                sizeStyles={styles[chartSize]}
                             />
                         )
                     case ("area") :
@@ -35,6 +46,7 @@ const ChartBuilder = (config: IProps) => {
                                 data={chart.data}
                                 keys={chart.keysArray}
                                 stylesData={chart.stylesData}
+                                sizeStyles={styles[chartSize]}
                             />
                         )
                     case ("bar") :
@@ -44,6 +56,7 @@ const ChartBuilder = (config: IProps) => {
                                 data={chart.data}
                                 keys={chart.keysArray}
                                 stylesData={chart.stylesData}
+                                sizeStyles={styles[chartSize]}
                             />
                         )
                     case ("stackedBar") :
@@ -53,6 +66,7 @@ const ChartBuilder = (config: IProps) => {
                                 data={chart.data}
                                 keys={chart.keysArray}
                                 stylesData={chart.stylesData}
+                                sizeStyles={styles[chartSize]}
                             />
                         )
                     case ("pie") :
@@ -62,6 +76,7 @@ const ChartBuilder = (config: IProps) => {
                                 data={chart.data}
                                 keys={chart.keysArray}
                                 stylesData={chart.stylesData}
+                                sizeStyles={styles[chartSize]}
                             />
                         )
                 }

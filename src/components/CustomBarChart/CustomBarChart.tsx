@@ -17,13 +17,11 @@ import {IChartProps} from "../../interfaces";
 
 import styles from './CustomBarChart.module.scss'
 
-const CustomBarChart = ({data, keys, stylesData}: IChartProps) => {
+const CustomBarChart = ({data, keys, stylesData, sizeStyles}: IChartProps) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={sizeStyles || styles.wrapper}>
             <ResponsiveContainer width="100%" aspect={3}>
                 <BarChart
-                    width={500}
-                    height={300}
                     data={data}
                     margin={{
                         top: 20,

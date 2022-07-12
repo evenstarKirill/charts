@@ -117,12 +117,31 @@ export const config: Array<IConfig> = [
         }
     },
     {
-        chartType: "pie",
-        data: dataPie,
+        chartType: "stackedBar",
+        data: data,
         keysArray: keysArray,
         id: nanoid(),
         stylesData: {
-            colors: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'],
+            colors: ["silver", "green"],
+            type: "step",
+            legendType: "circle",
+            dot: true,
+            activeDot: true,
+            areaGradient: true,
+            strokeWidth: 3,
+            barCategoryGap: '30%',
+            barGap: 1,
+            background: false,
+            barSize: 7,
         }
     },
+    // {
+    //     chartType: "pie",
+    //     data: dataPie,
+    //     keysArray: keysArray,
+    //     id: nanoid(),
+    //     stylesData: {
+    //         colors: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'],
+    //     }
+    // },
 ]

@@ -18,10 +18,13 @@ import {IChartProps} from "../../interfaces";
 import './../../global-styles.scss'
 import styles from './CustomAreaChart.module.scss';
 
-const CustomAreaChart = ({data, keys, stylesData}: IChartProps) => {
+const CustomAreaChart = ({data, keys, stylesData, sizeStyles}: IChartProps) => {
     return (
-        <div className={styles.wrapper}>
-            <ResponsiveContainer width="100%" aspect={3}>
+        <div className={sizeStyles || styles.wrapper}>
+            <ResponsiveContainer
+                width="100%"
+                aspect={3}
+            >
                 <AreaChart
                     data={data}
                     margin={{

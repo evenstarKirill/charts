@@ -1,5 +1,4 @@
 import React from 'react';
-import {nanoid} from "nanoid";
 import {
     LineChart,
     Line,
@@ -12,7 +11,6 @@ import {
 } from 'recharts';
 
 import CustomTooltip from "../CustomToolTip/CustomToolTip";
-import {getRandomColor} from "../../helpers/colorRandomizer";
 
 import {IChartProps} from "../../interfaces";
 
@@ -20,9 +18,9 @@ import {formattedXAxis} from "../../helpers/formatXaxis";
 
 import styles from './CustomLineChart.module.scss'
 
-const CustomLineChart = ({data, keys, stylesData}: IChartProps) => {
+const CustomLineChart = ({data, keys, stylesData, sizeStyles}: IChartProps) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={sizeStyles || styles.wrapper}>
             <ResponsiveContainer
                 width="100%"
                 aspect={3}

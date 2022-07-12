@@ -11,7 +11,6 @@ interface CustomTooltipProps extends TooltipProps<number, string> {
 }
 
 function CustomTooltip({active, payload, label, chartType}: CustomTooltipProps) {
-    console.log("payload", payload)
     if (active) {
         return (
             <div className={styles.tooltip}>
