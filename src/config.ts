@@ -45,7 +45,9 @@ export const dataPie = [
   },
 ];
 
-const valuesArray = data.map(({ date, id, ...remainingAttrs }) => remainingAttrs);
+const valuesArray = data.map(
+  ({ date, id, ...remainingAttrs }) => remainingAttrs,
+);
 export const keysArray = Object.keys(valuesArray[0]);
 
 export const config: Array<IConfig> = [
@@ -135,13 +137,13 @@ export const config: Array<IConfig> = [
       barSize: 7,
     },
   },
-  // {
-  //     chartType: "pie",
-  //     data: dataPie,
-  //     keysArray: keysArray,
-  //     id: nanoid(),
-  //     stylesData: {
-  //         colors: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'],
-  //     }
-  // },
+  {
+    chartType: 'pie',
+    data: dataPie,
+    keysArray: keysArray,
+    id: nanoid(),
+    stylesData: {
+      colors: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'],
+    },
+  },
 ];
