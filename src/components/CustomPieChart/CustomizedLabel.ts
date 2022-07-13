@@ -1,7 +1,7 @@
 interface ICustomizedLabelProps {
-    percent: number;
+  percent: number;
 }
 
-export const CustomizedLabel = ({percent}: ICustomizedLabelProps) => {
-    return `${(percent * 100).toFixed(0)}%`
+export const CustomizedLabel = ({ percent }: ICustomizedLabelProps) => {
+  return `${(percent * 100).toFixed(0)}%`;
 };
