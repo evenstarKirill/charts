@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const ChartBuilder = (config: IProps) => {
-  let chartSize: string = 'chart_full';
+  let chartSize = 'chart_full';
 
   if (config.config.length === 1) {
     chartSize = 'chart_full';

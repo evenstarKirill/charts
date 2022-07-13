@@ -45,7 +45,7 @@ export const dataPie = [
   },
 ];
 
-let valuesArray = data.map(({ date, id, ...remainingAttrs }) => remainingAttrs);
+const valuesArray = data.map(({ date, id, ...remainingAttrs }) => remainingAttrs);
 export const keysArray = Object.keys(valuesArray[0]);
 
 export const config: Array<IConfig> = [
