@@ -5,11 +5,10 @@ import { IChartProps } from '../../interfaces';
 
 import { CustomizedLabel } from './CustomizedLabel';
 import CustomTooltip from '../CustomToolTip/CustomToolTip';
+import { cellFill } from '../../helpers/cellFill';
 
 import './../../global-styles.scss';
 import styles from './CustomPieChart.module.scss';
-import { cellFill } from '../../helpers/cellFill';
-import clsx from 'clsx';
 
 const CustomPieChart = ({
   data,
