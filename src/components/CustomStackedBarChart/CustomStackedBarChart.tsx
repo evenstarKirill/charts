@@ -28,12 +28,14 @@ const CustomStackedBarChart = ({
       <ResponsiveContainer width="100%" aspect={3}>
         <BarChart
           data={data}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
+          margin={
+            stylesData?.margin || {
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }
+          }
         >
           <CartesianGrid opacity={0.1} vertical={false} strokeDasharray="3 3" />
           <XAxis
@@ -70,6 +72,11 @@ const CustomStackedBarChart = ({
           ))}
         </BarChart>
       </ResponsiveContainer>
+      {stylesData?.titleContent && (
+        <h3 style={{ ...stylesData?.titleStyles }} className={styles.title}>
+          {stylesData?.titleContent}
+        </h3>
+      )}
     </div>
   );
 };

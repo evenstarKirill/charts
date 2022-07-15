@@ -64,6 +64,13 @@ export const config: Array<IConfig> = [
       activeDot: true,
       areaGradient: true,
       strokeWidth: 3,
+      titleStyles: {
+        marginTop: '10px',
+        textAlign: 'center',
+        color: 'white',
+        fontSize: '24px',
+      },
+      titleContent: 'o hi line',
     },
   },
   {
@@ -78,6 +85,15 @@ export const config: Array<IConfig> = [
       dot: false,
       activeDot: true,
       areaGradient: true,
+      titleStyles: {
+        marginTop: '10px',
+        textAlign: 'center',
+        color: 'white',
+        fontSize: '24px',
+      },
+      titleContent: 'o hi area',
+      areaGradientColors: ['red', 'blue'],
+      gradientTransparency: [0.6, 0.1],
     },
   },
   {
@@ -119,7 +135,7 @@ export const config: Array<IConfig> = [
     },
   },
   {
-    chartType: 'stackedBar',
+    chartType: 'bar',
     data: data,
     keysArray: keysArray,
     id: nanoid(),
@@ -144,6 +160,7 @@ export const config: Array<IConfig> = [
     id: nanoid(),
     stylesData: {
       colors: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'],
+      pieLabelType: 'inner',
     },
   },
 ];

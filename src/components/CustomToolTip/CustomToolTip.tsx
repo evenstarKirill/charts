@@ -16,25 +16,25 @@ function CustomTooltip({
   label,
   chartType,
 }: CustomTooltipProps) {
-  if (active) {
-    return (
-      <div className={styles.tooltip}>
-        {chartType === 'pie' ? (
-          payload?.map((item) => (
-            <h4 key={nanoid()}>
-              {format(parseISO(item.payload.date), 'eeee, d MMM, yyyy')}
-            </h4>
-          ))
-        ) : (
-          <h4>{format(parseISO(label), 'eeee, d MMM, yyyy')}</h4>
-        )}
-        {payload?.map((item: Payload<number, string>) => (
-          <p key={nanoid()}>${item.value?.toFixed(3)} CAD</p>
-        ))}
-      </div>
-    );
+  if (!active) {
+    return null;
   }
-  return null;
+  return (
+    <div className={styles.tooltip}>
+      {chartType === 'pie' ? (
+        payload?.map((item) => (
+          <h4 key={nanoid()}>
+            {format(parseISO(item.payload.date), 'eeee, d MMM, yyyy')}
+          </h4>
+        ))
+      ) : (
+        <h4>{format(parseISO(label), 'eeee, d MMM, yyyy')}</h4>
+      )}
+      {payload?.map((item: Payload<number, string>) => (
+        <p key={nanoid()}>${item.value?.toFixed(3)} CAD</p>
+      ))}
+    </div>
+  );
 }
 
 export default CustomTooltip;

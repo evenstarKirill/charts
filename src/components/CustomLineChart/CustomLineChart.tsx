@@ -25,16 +25,18 @@ const CustomLineChart = ({
   sizeStyles,
 }: IChartProps) => {
   return (
-    <div className={sizeStyles || styles.wrapper}>
+    <div className={sizeStyles}>
       <ResponsiveContainer width="100%" aspect={3}>
         <LineChart
           data={data}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
+          margin={
+            stylesData?.margin || {
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }
+          }
         >
           <CartesianGrid opacity={0.1} vertical={false} strokeDasharray="3 3" />
           <XAxis
@@ -72,6 +74,9 @@ const CustomLineChart = ({
           ))}
         </LineChart>
       </ResponsiveContainer>
+      <h3 style={{ ...stylesData?.titleStyles }} className={styles.title}>
+        {stylesData?.titleContent}
+      </h3>
     </div>
   );
 };

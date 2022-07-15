@@ -28,12 +28,14 @@ const CustomBarChart = ({
       <ResponsiveContainer width="100%" aspect={3}>
         <BarChart
           data={data}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
+          margin={
+            stylesData?.margin || {
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }
+          }
           barCategoryGap={stylesData?.barCategoryGap || '10%'}
           barGap={stylesData?.barGap || 5}
         >
@@ -71,6 +73,11 @@ const CustomBarChart = ({
           ))}
         </BarChart>
       </ResponsiveContainer>
+      {stylesData?.titleContent && (
+        <h3 style={{ ...stylesData?.titleStyles }} className={styles.title}>
+          {stylesData?.titleContent}
+        </h3>
+      )}
     </div>
   );
 };

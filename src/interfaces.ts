@@ -1,4 +1,5 @@
 import { LegendType } from 'recharts';
+import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export interface IData {
   date: string;
@@ -36,6 +37,13 @@ export interface IStylesData {
   barGap?: number;
   background?: boolean;
   barSize?: number;
+  pieLabelType?: string;
+  titleStyles?: {
+    [key: string]: string;
+  };
+  titleContent?: string;
+  areaGradientColors?: string[];
+  gradientTransparency?: number[];
 }
 
 export interface IConfig {
