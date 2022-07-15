@@ -38,7 +38,11 @@ const CustomLineChart = ({
             }
           }
         >
-          <CartesianGrid opacity={0.1} vertical={false} strokeDasharray="3 3" />
+          <CartesianGrid
+            opacity={0.1}
+            vertical={false}
+            strokeDasharray={stylesData?.strokeDashType || ''}
+          />
           <XAxis
             dataKey="date"
             axisLine={false}
@@ -55,7 +59,6 @@ const CustomLineChart = ({
             cursor={{ stroke: '#D9FFFF' }}
             content={<CustomTooltip chartType="line" />}
           />
-          <Legend />
           {keys.map((val) => (
             <Line
               key={val.toString()}
@@ -72,6 +75,7 @@ const CustomLineChart = ({
               strokeWidth={stylesData?.strokeWidth || 1}
             />
           ))}
+          {stylesData?.legend && <Legend verticalAlign="bottom" height={36} />}
         </LineChart>
       </ResponsiveContainer>
       <h3 style={{ ...stylesData?.titleStyles }} className={styles.title}>

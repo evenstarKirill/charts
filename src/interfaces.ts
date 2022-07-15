@@ -16,7 +16,7 @@ export interface IChartProps {
 }
 
 export interface IStylesData {
-  colors: string[] | undefined;
+  colors: string[];
   type?: string;
   margin?: {
     top: number;
@@ -24,6 +24,7 @@ export interface IStylesData {
     left: number;
     bottom: number;
   };
+  legend: boolean;
   legendType?: LegendType;
   dot?: boolean;
   activeDot?: boolean;
@@ -44,6 +45,7 @@ export interface IStylesData {
   titleContent?: string;
   areaGradientColors?: string[];
   gradientTransparency?: number[];
+  strokeDashType?: string;
 }
 
 export interface IConfig {

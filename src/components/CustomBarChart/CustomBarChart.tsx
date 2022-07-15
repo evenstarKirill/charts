@@ -39,7 +39,11 @@ const CustomBarChart = ({
           barCategoryGap={stylesData?.barCategoryGap || '10%'}
           barGap={stylesData?.barGap || 5}
         >
-          <CartesianGrid opacity={0.1} vertical={false} strokeDasharray="3 3" />
+          <CartesianGrid
+            opacity={0.1}
+            vertical={false}
+            strokeDasharray={stylesData?.strokeDashType || ''}
+          />
           <XAxis
             axisLine={false}
             tickLine={false}
@@ -56,7 +60,6 @@ const CustomBarChart = ({
             cursor={{ stroke: '#D9FFFF' }}
             content={<CustomTooltip chartType="bar" />}
           />
-          <Legend />
           {keys.map((val) => (
             <Bar
               legendType={stylesData?.legendType || 'circle'}
@@ -71,6 +74,7 @@ const CustomBarChart = ({
               barSize={stylesData?.barSize || 5}
             />
           ))}
+          {stylesData?.legend && <Legend verticalAlign="bottom" height={36} />}
         </BarChart>
       </ResponsiveContainer>
       {stylesData?.titleContent && (

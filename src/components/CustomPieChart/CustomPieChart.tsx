@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cell, ResponsiveContainer, PieChart, Pie, Tooltip } from 'recharts';
+import { Cell, ResponsiveContainer, PieChart, Pie, Tooltip, Legend } from 'recharts';
 
 import { IChartProps } from '../../interfaces';
 
@@ -52,6 +52,7 @@ const CustomPieChart = ({
             cursor={{ stroke: '#D9FFFF' }}
             content={<CustomTooltip chartType="pie" />}
           />
+          {stylesData?.legend && <Legend verticalAlign="bottom" height={36} />}
         </PieChart>
       </ResponsiveContainer>
       {stylesData?.titleContent && (

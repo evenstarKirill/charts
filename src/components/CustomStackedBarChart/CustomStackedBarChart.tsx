@@ -37,7 +37,11 @@ const CustomStackedBarChart = ({
             }
           }
         >
-          <CartesianGrid opacity={0.1} vertical={false} strokeDasharray="3 3" />
+          <CartesianGrid
+            opacity={0.1}
+            vertical={false}
+            strokeDasharray={stylesData?.strokeDashType || ''}
+          />
           <XAxis
             dataKey="date"
             axisLine={false}
@@ -54,7 +58,6 @@ const CustomStackedBarChart = ({
             cursor={{ stroke: '#D9FFFF' }}
             content={<CustomTooltip chartType="stackedBar" />}
           />
-          <Legend />
           {keys.map((val) => (
             <Bar
               dataKey={val.toString()}
@@ -70,6 +73,7 @@ const CustomStackedBarChart = ({
               barSize={stylesData?.barSize || 5}
             />
           ))}
+          {stylesData?.legend && <Legend verticalAlign="bottom" height={36} />}
         </BarChart>
       </ResponsiveContainer>
       {stylesData?.titleContent && (

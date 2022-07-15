@@ -69,7 +69,9 @@ const CustomAreaChart = ({
                     offset="0%"
                     stopColor={
                       stylesData
-                        ? (stylesData?.areaGradientColors as string[])[keys.indexOf(val)]
+                        ? (stylesData?.areaGradientColors as string[])[
+                          keys.indexOf(val)
+                        ]
                         : 'blue'
                     }
                     stopOpacity={
@@ -80,7 +82,9 @@ const CustomAreaChart = ({
                     offset="75%"
                     stopColor={
                       stylesData
-                        ? (stylesData?.areaGradientColors as string[])[keys.indexOf(val)]
+                        ? (stylesData?.areaGradientColors as string[])[
+                          keys.indexOf(val)
+                        ]
                         : 'white'
                     }
                     stopOpacity={
@@ -91,7 +95,7 @@ const CustomAreaChart = ({
               </defs>
             </>
           ))}
-          <Legend verticalAlign="bottom" height={36} />
+          {stylesData?.legend && <Legend verticalAlign="bottom" height={36} />}
           <XAxis
             dataKey="date"
             axisLine={false}
@@ -108,7 +112,11 @@ const CustomAreaChart = ({
             cursor={{ stroke: '#D9FFFF' }}
             content={<CustomTooltip chartType="area" />}
           />
-          <CartesianGrid opacity={0.1} vertical={false} />
+          <CartesianGrid
+            opacity={0.1}
+            vertical={false}
+            strokeDasharray={stylesData?.strokeDashType || ''}
+          />
         </AreaChart>
       </ResponsiveContainer>
       {stylesData?.titleContent && (
